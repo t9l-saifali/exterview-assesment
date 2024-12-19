@@ -1,0 +1,50 @@
+service: graphql-backend
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  graphql:
+    handler: handler.graphqlHandler
+    timeout: 60
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Authorization
+            methods:
+              - OPTIONS
+              - POST
+              - GET
+      - http:
+          path: graphql
+          method: get
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Authorization
+            methods:
+              - OPTIONS
+              - POST
+              - GET
+
+resources:
+  Resources:
+    ApiGateway:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Name: "CompilerAPI"
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3001  # You can change the port if needed

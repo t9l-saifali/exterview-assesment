@@ -1,0 +1,21 @@
+{
+  "name": "graphql-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-lambda": "^3.13.0",
+    "graphql-backend": "file:",
+    "jsonwebtoken": "^9.0.2",
+    "vm2": "^3.9.19"
+  },
+  "devDependencies": {
+    "serverless-offline": "^14.4.0"
+  }
+}
